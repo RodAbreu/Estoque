@@ -1,11 +1,10 @@
 #ifndef LISTA_HPP
-#define LISTA_HPP
+#define LISTA_HPP value
 #include <iostream>
-#include "Nodetype.hpp"
+#include "NodeType.hpp"
 #include <string>
 
 using namespace std;
-
 
 class Lista
 {
@@ -13,32 +12,27 @@ public:
 	Lista();
 	~Lista();
 
-	void cria(NodeType* x);
 	void addItem();
 	void exibeLista();
-	int quantItens();
+	int quantItens() const;
+	void hello();
 //	void vazia();
 //	void cheia();
 //	void procuraNo();
 //	void removeNo();
 
 
-private:
+public:
 	NodeType* P;
 };
 
 
 Lista::Lista(){
-	P = NULL;
+	P = NULL;	
 	P->set_next(NULL);
 }
+
 Lista::~Lista(){}
-	
-void Lista::cria(NodeType* x){
-	P = new NodeType;
-	P = x;
-	P->set_next(NULL);
-}
 
 void Lista::addItem(){
 	
@@ -64,14 +58,14 @@ void Lista::addItem(){
 	delete(x);
 }
 
-int Lista::quantItens(){
+int Lista::quantItens()const{
 	if (P==NULL){
 		return 0;
 	}else{
 		int x = 0;
 		while(P!=NULL){
 			x++;
-			P=P->get_next();
+			P->set_next(P->get_next());
 		}
 	}
 }
@@ -84,9 +78,13 @@ void Lista::exibeLista(){
 		cout<<"Quantidade: "<<P->get_quant()<<endl;
 		cout<<endl;
 
-		P=P->next;
+		P->set_next(P->get_next());
 
 	}
+}
+
+void Lista::hello(){
+	cout<<"hello"<<endl;
 }
 
 

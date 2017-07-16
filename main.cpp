@@ -1,18 +1,23 @@
 #include "Lista.hpp"
-#include "Nodetype.hpp"
+#include "NodeType.hpp"
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 //ERRO NA CRIAÇÃO DE UM OBJETO DA CLASSE LISTA
 
 
-int main(){
-	
-	Lista estoque;
+int main(int argc, char const *argv[])
+{
+	Lista teste();
+	teste.hello();
 
-	cout<<"ola"<<endl;
-	//estoque.addItem();
+	return 0;
+}
+	
+	
+
  //    cout<<"Ola, Madalena!"<<endl;
  //    cout<<"Bem vinda ao programa de gerenciamento de estoque!\n\n"<<endl;
  //    do{
@@ -29,5 +34,3 @@ int main(){
  //         case 3:
 
 
-return 0;
-}
