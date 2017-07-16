@@ -1,7 +1,6 @@
 #include "Lista.hpp"
 #include "NodeType.hpp"
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -11,7 +10,10 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
 	Lista teste();
-	teste.hello();
+	NodeType* x = new NodeType;
+	x->set_quant(5);
+	cout<<x->get_quant()<<endl;
+	//teste.hello();	
 
 	return 0;
 }

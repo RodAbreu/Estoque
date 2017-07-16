@@ -1,5 +1,5 @@
 #ifndef NODETYPE_HPP
-#define NODETYPE_HPP value
+#define NODETYPE_HPP
 #include <iostream>
 #include <string>
 
@@ -12,13 +12,13 @@ public:
 	NodeType();
 	~NodeType();
 
-	void set_id(int id);
+	void set_id(int);
 	int get_id() const;
 
-	void set_nome(string nome);
+	void set_nome(string);
 	string get_nome() const;
 
-	void set_quant(int quant);
+	void set_quant(int);
 	int get_quant() const;
 
 
@@ -42,32 +42,32 @@ NodeType::NodeType(){
 NodeType::~NodeType(){}
 
 
-void NodeType::set_id(int id){
-	id = get_id();
+void NodeType::set_id(int vid){
+	this->id = vid;
 }
 int NodeType::get_id() const{
-	return id;
+	return this->id;
 }
 
-void NodeType::set_nome(string nome){
-	nome = get_nome();
+void NodeType::set_nome(string vnome){
+	this->nome = vnome;
 }
 string NodeType::get_nome() const{
-	return nome;
+	return this->nome;
 }
 
-void NodeType::set_quant(int quant){
-	quant = get_quant();
+void NodeType::set_quant(int vquant){
+	this->quant = vquant;
 }
 int NodeType::get_quant() const{
-	return quant;
+	return this->quant;
 }
 
 void NodeType::set_next(NodeType *pnext){
 	next = pnext;
 }
 NodeType* NodeType::get_next() const{
-	return next;
+	return this->next;
 }
 
 
