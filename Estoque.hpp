@@ -30,6 +30,11 @@ Estoque::Estoque(){
 }
 Estoque::~Estoque(){}
 
+void set_quantEstoque(int quantEstoque){
+	
+}
+int get_quantEstoque();
+
 void Estoque::adicionaEstoque(){
     quantItensTotal += 1;
 }

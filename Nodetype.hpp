@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string.h>
+#include <string>
 #ifndef NODETYPE_HPP
 #define NODETYPE_HPP
 
@@ -25,7 +25,7 @@ public:
 	NodeType* get_next();
 
 
-private:
+public:
 	int id;
 	string nome;
 	int quant;
@@ -38,7 +38,8 @@ NodeType::NodeType(){
 	quant = 0;
 	nome = "";
 }
-//~NodeType(){}
+NodeType::~NodeType(){}
+
 
 void NodeType::set_id(int id){
 	id = get_id();
