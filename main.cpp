@@ -9,11 +9,24 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	Lista teste();
-	NodeType* x = new NodeType;
-	x->set_quant(5);
-	cout<<x->get_quant()<<endl;
-	//teste.hello();	
+	Lista teste;
+	NodeType* y = new NodeType();
+	NodeType* z = new NodeType();
+	NodeType* t = new NodeType();
+	NodeType* q = new NodeType();
+	NodeType* p = new NodeType();
+	y->constroiTudo("rodrigo",2);
+	// z->constroiTudo("rafael",1);
+	t->constroiTudo("rodrigo",2);
+	// q->constroiTudo("rafael",3);
+	// p->constroiTudo("Delano",5);
+	teste.Insere(y);
+	// teste.Insere(z);
+	teste.Insere(t);
+	// teste.Insere(q);
+	// teste.Insere(p);
+	teste.exibeLista();
+
 
 	return 0;
 }

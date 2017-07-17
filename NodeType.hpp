@@ -12,6 +12,8 @@ public:
 	NodeType();
 	~NodeType();
 
+	void constroiTudo(string vnome, int vquant);
+
 	void set_id(int);
 	int get_id() const;
 
@@ -41,6 +43,12 @@ NodeType::NodeType(){
 }
 NodeType::~NodeType(){}
 
+
+void NodeType::constroiTudo(string vnome, int vquant){
+	set_nome(vnome);
+	set_quant(vquant);
+
+}
 
 void NodeType::set_id(int vid){
 	this->id = vid;
