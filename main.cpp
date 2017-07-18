@@ -1,6 +1,7 @@
 #include "Lista.hpp"
 #include "NodeType.hpp"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -16,15 +17,15 @@ int main(int argc, char const *argv[])
 	NodeType* q = new NodeType();
 	NodeType* p = new NodeType();
 	y->constroiTudo("rodrigo",2);
-	// z->constroiTudo("rafael",1);
-	t->constroiTudo("rodrigo",2);
-	// q->constroiTudo("rafael",3);
-	// p->constroiTudo("Delano",5);
+	z->constroiTudo("rafael",1);
+	t->constroiTudo("rafael",2);
+	q->constroiTudo("rafael",3);
+	p->constroiTudo("Delano",5);
 	teste.Insere(y);
-	// teste.Insere(z);
+	teste.Insere(z);
 	teste.Insere(t);
-	// teste.Insere(q);
-	// teste.Insere(p);
+	teste.Insere(q);
+	teste.Insere(p);
 	teste.exibeLista();
 
 

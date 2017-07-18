@@ -3,7 +3,7 @@
 
 #include "NodeType.hpp"
 #include <iostream>
-#include <string>
+#include <string.h>	
 
 using namespace std;
 
@@ -68,14 +68,20 @@ void Lista::InsereADireita(NodeType* x){
 	Paux2 = x;
 	Paux2->set_next(NULL);
 	Paux = P;
+
 	while(Paux->get_next()!=NULL){
+
 		if (Paux2->get_nome()==Paux->get_nome()){
-			Paux->set_quant(Paux->get_quant()+Paux2->quant);
-			break;	
-		}
+		 	Paux->set_quant(Paux->get_quant()+Paux2->get_quant());
+		}			
 		Paux = Paux->get_next();
 	}
-	Paux->set_next(Paux2);
+
+	if (Paux->get_next()==NULL)
+	{
+		Paux->set_next(Paux2);
+	}
+
 	//Paux2->set_id(ID);
 
 }
@@ -111,8 +117,6 @@ void Lista::exibeLista(){
 		}
 	}
 }
-
-
 
 
 
