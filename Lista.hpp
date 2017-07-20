@@ -68,33 +68,44 @@ void Lista::InsereADireita(NodeType* x){
 	Paux2 = x;
 	Paux2->set_next(NULL);
 	Paux = P;
+	bool Ok = false;
 
-	while(Paux->get_next()!=NULL){
+	while(Paux!=NULL&&Ok==false){
 
-		if (Paux2->get_nome()==Paux->get_nome()){
+		if (Paux2->get_nome()==Paux->get_nome()){ //caso já tenha o item
 		 	Paux->set_quant(Paux->get_quant()+Paux2->get_quant());
-		}			
-		Paux = Paux->get_next();
+		 	Ok = true;
+		}else{
+			if(Paux->get_next()==NULL){ //caso não tenha o item
+				Paux->set_next(Paux2);
+				// cout<<"novo"<<endl;
+				Ok = true;
+			}else{
+				Paux = Paux->get_next();//pula para o próximo
+				// cout<<"pula"<<endl;
+			}
+		}	
 	}
-
-	if (Paux->get_next()==NULL)
-	{
-		Paux->set_next(Paux2);
-	}
+	Paux = NULL;
+	Paux2 = NULL;
 
 	//Paux2->set_id(ID);
 
 }
 
 int Lista::quantItens()const{
-	if (P==NULL){
+	NodeType* x;
+	x = P;
+
+	if (x==NULL){
 		return 0;
 	}else{
-		int x = 0;
-		while(P!=NULL){
-			x++;
-			P->set_next(P->get_next());
+		int quant = 0;
+		while(x!=NULL){
+			quant++;
+			x = x->get_next();
 		}
+		return quant;
 	}
 }
 
