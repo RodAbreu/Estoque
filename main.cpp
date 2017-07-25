@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//ERRO NA CRIAÇÃO DE UM OBJETO DA CLASSE LISTA
+//ARRUMAR ID E QUANT NO REMOVE
 
 
 int main(int argc, char const *argv[])
@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 	int quant;
 	float preco;
 
-		cout<<"Ola, bem-vindo ao sistema de estoque!"<<endl;	
+		cout<<"Ola, bem-vindo ao sistema de estoque!"<<endl<<endl;	
 
 	while( decisao!=0 ){
 
@@ -40,6 +40,7 @@ int main(int argc, char const *argv[])
 					cin>>name;
 					cout<<"Digite a quantidade a ser inserida: ";	
 					cin>>quant;	
+					cout<<endl;
 					cout<<"O preco do item atualmente eh: "<<teste.ProcuraNoRetornaPreco(name)<<endl;
 					cout<<"Caso deseje alterar digite outro preco, caso contrario digite o mesmo preco: ";
 					cin>>preco;
@@ -52,9 +53,15 @@ int main(int argc, char const *argv[])
 			case 3:
 					cout<<"Digite o nome do item: ";
 					cin>>name;
-					cout<<"Digite a quantidade a ser removida: ";	
-					cin>>quant;									
-					teste.Remove(name,quant);	
+					if( teste.ProcuraNoRetornaQuant(name) > 0 ){
+						cout<<endl;
+						cout<<"A quatidade atual presente no estoque eh: "<<teste.ProcuraNoRetornaQuant(name)<<" itens."<<endl<<endl;
+						cout<<"Digite a quantidade a ser removida: ";	
+						cin>>quant;									
+						teste.Remove(name,quant);
+					}else{
+						cout<<"O item não esta presente no estoque."<<endl;
+					}
 					break;				
 
 			case 4:

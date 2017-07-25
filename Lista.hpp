@@ -20,7 +20,7 @@ public:
 	void Remove(string name,int quant);
 
 	float ProcuraNoRetornaPreco(string name); // retorna o preco
-
+	int ProcuraNoRetornaQuant(string name);
 	bool Vazia();
 	void exibeLista();
 	int quantItens() const;
@@ -29,7 +29,6 @@ public:
 
 public:
 	NodeType* P;
-	//int ID;
 };
 
 
@@ -103,24 +102,33 @@ void Lista::Remove(string name, int quant){
 		bool Ok = false;
 
 		if( name == Paux->get_nome() ){
-			if( Paux->get_next()==NULL ){
-				P->set_next(NULL);
-				P = NULL;
-				delete(Paux);
-				Paux = NULL;
-			}else if( Paux->get_next()!=NULL ){
-				P = Paux->get_next();
-				delete(Paux);
-				Paux = NULL;
+			if( quant >= Paux->get_quant() ){
+				if( Paux->get_next()==NULL ){
+					P->set_next(NULL);
+					P = NULL;
+					delete(Paux);
+					Paux = NULL;
+				}else if( Paux->get_next()!=NULL ){
+					P = Paux->get_next();
+					delete(Paux);
+					Paux = NULL;
+				}
+			}else{
+				Paux->set_quant(Paux->get_quant()-quant);
 			}	
 		}else{	
 			while( Paux!=NULL && Ok==false ){
 				Paux2 = Paux->get_next();
 				if ( name == Paux2->get_nome() ){ //caso já tenha o item
-					Paux->set_next(Paux2->get_next());
-					delete(Paux2);
-					Paux2 = NULL;
-					Ok = true;
+						if( quant >= Paux->get_quant() ){
+							Paux->set_next(Paux2->get_next());
+							delete(Paux2);
+							Paux2 = NULL;
+							Ok = true;
+						}else{
+							Paux->set_quant(Paux->get_quant()-quant);
+							Ok = true;
+						}
 				}else{
 					Paux = Paux->get_next();		
 				}	
@@ -174,6 +182,19 @@ float Lista::ProcuraNoRetornaPreco(string name){
 		while(Paux!=NULL){
 			if( name == Paux->get_nome() ){
 				return Paux->get_preco();
+			}
+			Paux = Paux->get_next();
+		}
+		return 0;
+}
+
+int Lista::ProcuraNoRetornaQuant(string name){ 
+	NodeType* Paux;
+	Paux = P;
+
+		while(Paux!=NULL){
+			if( name == Paux->get_nome() ){
+				return Paux->get_quant();
 			}
 			Paux = Paux->get_next();
 		}
